@@ -1,0 +1,29 @@
+{% import "_includes/forms" as forms %}
+
+<a href="http://jwt.io/" target="_blank">
+	<img src="http://jwt.io/assets/logo.svg" alt="jwt" width="80"
+	     style="border-radius:3px;float:right;position:relative;top:-24px;z-index:2">
+</a>
+
+{{
+forms.textField({
+	label: "Secret"|t,
+	id: 'secret',
+	name: 'secret',
+	instructions: "The secret used to generate and verify the JWT's"|t,
+	value: settings.secret,
+	errors: settings.getErrors('secret')
+})
+}}
+
+{{
+forms.textField({
+	type: "number",
+	label: "Token Expiration Time"|t,
+	id: 'expirationTime',
+	name: 'expirationTime',
+	instructions: "The time, in seconds, that the token will expire after it was created. Set to -1 for it to never expire."|t,
+	value: settings.expirationTime,
+	errors: settings.getErrors('expirationTime')
+})
+}}
