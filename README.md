@@ -26,7 +26,7 @@ Sets the Content-Type header to application/json.
 
 
 ### Example Get API
-```
+```twig
 {% requireJwt %}
 {% returnJson %}
 {% set data = ['hello','world'] %}
