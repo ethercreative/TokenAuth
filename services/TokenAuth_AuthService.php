@@ -35,7 +35,7 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 			$header = str_replace(' ', '-', ucwords(str_replace('_', ' ', strtolower(substr($key, 5)))));
 			$headers[$header] = $value;
 		}
-		return $headers[$headerName];
+		return !empty($headers[$headerName]) ? $headers[$headerName] : null;
 	}
 
 	/**
