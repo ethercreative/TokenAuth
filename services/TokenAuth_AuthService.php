@@ -26,6 +26,12 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 		craft()->end();
 	}
 
+	/**
+	 * Gets a header from the request
+	 *
+	 * @param $headerName String Name of the header to get
+	 * @return null
+	 */
 	private function getHeader($headerName) {
 		$headers = array();
 		foreach($_SERVER as $key => $value) {
@@ -110,6 +116,8 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 
 	public function checkAuth($jwt = false)
 	{
+		if (craft()->request->getRequestType() !== 'POST') $jwt = craft()->request->getParam('jwt');
+
 		$ret = false;
 
 		$secret = $this->settings->secret;
@@ -144,8 +152,9 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 						$userId = $doesUserExist->id;
 
 						if (craft()->userSession->loginByUserId($userId)) {
-							$this->returnJson(craft()->userSession->getUser());
-							return craft()->userSession->getUser();
+//							$this->returnJson(craft()->userSession->getUser());
+//							return craft()->userSession->getUser();
+							return true;
 						} else {
 							$ret = ['error'=>'login-failed'];
 						}
