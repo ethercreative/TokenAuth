@@ -33,7 +33,7 @@ class TokenAuthPlugin extends BasePlugin {
 
 	public function getSettingsHtml()
 	{
-		return craft()->templates->render('TokenAuth/settings', array(
+		return craft()->templates->render('tokenauth/settings', array(
 			'settings' => $this->getSettings()
 		));
 	}
@@ -42,12 +42,12 @@ class TokenAuthPlugin extends BasePlugin {
 	{
 		parent::init();
 
-		require CRAFT_PLUGINS_PATH.'/TokenAuth/vendor/autoload.php';
+		require CRAFT_PLUGINS_PATH.'/tokenauth/vendor/autoload.php';
 	}
 
 	public function addTwigExtension()
 	{
-		Craft::import('plugins.TokenAuth.twigextensions.TokenAuthTwigExtension');
+		Craft::import('plugins.tokenauth.twigextensions.TokenAuthTwigExtension');
 		return new TokenAuthTwigExtension();
 	}
 }

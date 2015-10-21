@@ -2,6 +2,8 @@
 A simple token authentication / custom JSON api enabling plugin. 
 
 ### Setup
+Clone 
+
 ```public/index.php``` needs
 ```
 header("Access-Control-Allow-Origin: *");
