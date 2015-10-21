@@ -39,7 +39,7 @@ Sets the Content-Type header to application/json.
 ```twig
 {% requireJwt %}
 {% returnJson %}
-{% set data = ['hello','world'] %}
+{% set data = {'tokenValid':'true'} %}
 {{ data|json_encode()|raw }}
 ```
 
