@@ -207,7 +207,14 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 
 		$this->returnJson([
 			'jwt'=>$token,
-			'user'=>$user
+			'user'=>[
+				'id' => $user['id'],
+				'email' => $user['email'],
+				'firstName' => $user['firstName'],
+				'lastName' => $user['lastName'],
+				'username' => $user['username'],
+				'photo' => $user->getPhotoUrl(600)
+			]
 		]);
 	}
 
