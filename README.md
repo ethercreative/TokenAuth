@@ -2,7 +2,7 @@
 A simple token authentication / custom JSON api enabling plugin. 
 
 ### Setup
-Clone 
+Clone this repo into `craft/plugins/tokenauth`.
 
 ```public/index.php``` needs
 ```
