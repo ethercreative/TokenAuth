@@ -205,7 +205,10 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 
 		$token = JWT::encode($payload, $secret);
 
-		$this->returnJson(['jwt'=>$token]);
+		$this->returnJson([
+			'jwt'=>$token,
+			'user'=>$user
+		]);
 	}
 
 }
