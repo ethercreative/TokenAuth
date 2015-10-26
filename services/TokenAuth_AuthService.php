@@ -92,7 +92,7 @@ class TokenAuth_AuthService extends BaseApplicationComponent {
 		// Ensure this is a post request
 		if (craft()->request->getRequestType() !== 'POST') throw new HttpException(400);
 
-//		$this->returnJson($_SERVER);
+		/*$this->returnJson($_SERVER);*/
 
 		// Ensure we have an action
 		if (empty($_POST['act'])) $this->returnJson(['error'=>'action-required']);
